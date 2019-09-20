@@ -14,7 +14,27 @@ app.use(express.json());
 // Set Handlebars.
 var exphbs = require("express-handlebars");
 
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.engine(
+  "handlebars",
+  exphbs({
+    defaultLayout: "main",
+    // https://stackoverflow.com/questions/33059203/error-missing-helper-in-handlebars-js/46317662#46317662
+    helpers: {
+      // Function to do basic mathematical operation in handlebar
+      math: function(lvalue, operator, rvalue) {
+        lvalue = parseFloat(lvalue);
+        rvalue = parseFloat(rvalue);
+        return {
+          "+": lvalue + rvalue,
+          "-": lvalue - rvalue,
+          "*": lvalue * rvalue,
+          "/": lvalue / rvalue,
+          "%": lvalue % rvalue
+        }[operator];
+      }
+    }
+  })
+);
 app.set("view engine", "handlebars");
 
 // Import routes and give the server access to them.

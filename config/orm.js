@@ -59,7 +59,7 @@ var orm = {
   },
 
   delete: function(table_name, some_column, some_value, cb) {
-    var sql = "DELETE FROM ?? WHERE ?? = ??";
+    var sql = "DELETE FROM ?? WHERE ?? = ?";
     connection.query(sql, [table_name, some_column, some_value], function(
       err,
       result
