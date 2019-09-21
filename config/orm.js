@@ -3,7 +3,7 @@ var connection = require("../config/connection.js");
 const { printQuestionMarks, objToSql } = require("../config/helper");
 
 var orm = {
-  get: function(column_name, table_name, where_column, some_value, cb) {
+  selectAll: function(column_name, table_name, where_column, some_value, cb) {
     var sql_array = [];
     sql_array.push(column_name);
     sql_array.push(table_name);
@@ -20,7 +20,7 @@ var orm = {
     });
   },
 
-  create: function(table_name, columns, values, cb) {
+  insertOne: function(table_name, columns, values, cb) {
     var sql = "INSERT INTO " + table_name;
 
     sql += " (";
@@ -40,7 +40,7 @@ var orm = {
     
   },
 
-  update: function(table, objColValues, condition, cb) {
+  updateOne: function(table, objColValues, condition, cb) {
     var sql = "UPDATE " + table;
 
     sql += " SET ";
