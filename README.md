@@ -9,7 +9,7 @@ The app utilizes MVC design architecture, where [Node](https://nodejs.org/) and 
 The app is hosted on [heroku](https://www.heroku.com/), where anyone can access and test the app.
 
 ## Structure
-Following the MVC design paradim, the app is structured in the following format
+Following the MVC design paradigm, the app is structured in the following format
 1. **M**odels folder:
   - **burger.js** - this file is used to access the ORM code to do CRUD operations on the database
 2. **V**iews folder:
